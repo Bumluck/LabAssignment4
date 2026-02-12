@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc92678b1a28874f9012ed70f59a73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SolutionOne
-  characterName: Sir John
+  charName: Sir John
   charClass: paladin
   level: 3
   constitution: 21
@@ -281,6 +281,8 @@ MonoBehaviour:
   orcBonus: 1
   goliathBonus: 1
   charHP: 0
+  instantiateCharacter: 1
+  charPrefab: {fileID: 8406759838287765612, guid: c67d109d3cbfd034d91c96b5416c3d2a, type: 3}
   classHitDie:
   - charClass: Artificer
     hitDie: 8

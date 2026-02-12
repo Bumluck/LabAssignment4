@@ -5,9 +5,11 @@ using System.Collections.Generic;
 
 public class SolutionOne : MonoBehaviour
 {
+    #region VARIABLES
+
     [Header("Inputs")]
     //Ask the user for these in the inspector
-    public string characterName;
+    public string charName;
     public string charClass;
     public int level;
     public int constitution;
@@ -29,13 +31,40 @@ public class SolutionOne : MonoBehaviour
     //Output HP
     public float charHP;
 
+    //Solution 2 items
+    public bool instantiateCharacter;
+    [SerializeField] GameObject charPrefab;
+    Character spawnedCharacter;
+
     //Lists for classes and constitution modifiers
     public List<CharClass> classHitDie;
     public List<ConMod> conMods;
 
+    //notes
     //(Class hit die * level) + (conModifier * level) + 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    #endregion
+
+    #region MONOBEHAVIOUR FUNCTIONS
+
     void Start()
+    {
+        DataCheck();
+        charHP = ClassHP();
+        charHP += (float)ConHP();
+        charHP += RaceCheck();
+        charHP += FeatCheck();
+        Debug.Log(charName + " is a " + level + " " + charClass + " with a Constitution of " + constitution + " is of " + characterRace + "race");
+        InstantiateCharacter();
+    }
+
+    #endregion
+
+    #region CALCULATE HEALTH
+
+    //-------------------//
+    public void DataCheck()
+    //-------------------//
     {
         if (level < 1 || level > 20)
         {
@@ -47,14 +76,11 @@ public class SolutionOne : MonoBehaviour
             constitution = 1;
             Debug.Log("That constitution is impossible, setting constitution to 1");
         }
-        charHP = ClassHP();
-        charHP += (float)ConHP();
-        charHP += RaceCheck();
-        charHP += FeatCheck();
-
     }
 
+    //-----------//
     float ClassHP()
+    //-----------//
     {
         float classHP;
 
@@ -79,7 +105,9 @@ public class SolutionOne : MonoBehaviour
         return 1;
     }
 
+    //-------//
     int ConHP()
+    //-------//
     {
         int conHP;
         for (int i = 0; i < conMods.Count - 1; i++)
@@ -94,7 +122,9 @@ public class SolutionOne : MonoBehaviour
         return 1;
     }
 
+    //-----------//
     int RaceCheck()
+    //-----------//
     {
         int raceHP;
         if (characterRace.Equals("Dwarf", System.StringComparison.OrdinalIgnoreCase))
@@ -115,7 +145,9 @@ public class SolutionOne : MonoBehaviour
             return 0;
     }
 
+    //-----------//
     int FeatCheck()
+    //-----------//
     {
         int featHP = 0;
         if (hasStout)
@@ -128,4 +160,21 @@ public class SolutionOne : MonoBehaviour
         }
         return featHP;
     }
+
+    #endregion
+
+    #region INSTANTIATE CHARACTER
+
+    //------------------------------//
+    public void InstantiateCharacter()
+    //------------------------------//
+    {
+        CharacterData characterData = new CharacterData(charHP, charName, level, charClass, characterRace);
+        spawnedCharacter = Instantiate(charPrefab).GetComponent<Character>();
+        spawnedCharacter.characterData = characterData;
+        spawnedCharacter.ProcessData();
+        Debug.Log("Character has spawned and data should have been passed to them");
+    }
+
+    #endregion
 }
