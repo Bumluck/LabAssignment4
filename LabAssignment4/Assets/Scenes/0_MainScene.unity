@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -275,14 +276,13 @@ MonoBehaviour:
   constitution: 21
   characterRace: dwarf
   averageHP: 1
+  printHP: 1
   hasStout: 0
   hasTough: 1
   dwarfBonus: 2
   orcBonus: 1
   goliathBonus: 1
   charHP: 0
-  instantiateCharacter: 1
-  charPrefab: {fileID: 8406759838287765612, guid: c67d109d3cbfd034d91c96b5416c3d2a, type: 3}
   classHitDie:
   - charClass: Artificer
     hitDie: 8
@@ -343,6 +343,93 @@ MonoBehaviour:
     conMod: 9
   - rangeTop: 31
     conMod: 10
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba59481e3424ba4c85642e2092e4fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SolutionTwo
+  charName: Sir John
+  charClass: Paladin
+  level: 3
+  constitution: 21
+  characterRace: dwarf
+  averageHP: 1
+  printHP: 0
+  hasStout: 0
+  hasTough: 1
+  dwarfBonus: 2
+  orcBonus: 1
+  goliathBonus: 1
+  charHP: 0
+  classHitDie:
+  - charClass: Artificer
+    hitDie: 8
+  - charClass: Barbarian
+    hitDie: 12
+  - charClass: Bard
+    hitDie: 8
+  - charClass: Cleric
+    hitDie: 8
+  - charClass: Druid
+    hitDie: 8
+  - charClass: Fighter
+    hitDie: 10
+  - charClass: Monk
+    hitDie: 8
+  - charClass: Ranger
+    hitDie: 10
+  - charClass: Rogue
+    hitDie: 8
+  - charClass: Paladin
+    hitDie: 10
+  - charClass: Sorcerer
+    hitDie: 6
+  - charClass: Wizard
+    hitDie: 6
+  - charClass: Warlock
+    hitDie: 8
+  conMods:
+  - rangeTop: 1
+    conMod: -5
+  - rangeTop: 3
+    conMod: -4
+  - rangeTop: 5
+    conMod: -3
+  - rangeTop: 7
+    conMod: -2
+  - rangeTop: 9
+    conMod: -1
+  - rangeTop: 11
+    conMod: 0
+  - rangeTop: 13
+    conMod: 1
+  - rangeTop: 15
+    conMod: 2
+  - rangeTop: 17
+    conMod: 3
+  - rangeTop: 19
+    conMod: 4
+  - rangeTop: 21
+    conMod: 5
+  - rangeTop: 23
+    conMod: 6
+  - rangeTop: 25
+    conMod: 7
+  - rangeTop: 27
+    conMod: 8
+  - rangeTop: 29
+    conMod: 9
+  - rangeTop: 31
+    conMod: 10
+  instantiateCharacter: 1
+  charPrefab: {fileID: 8406759838287765612, guid: c67d109d3cbfd034d91c96b5416c3d2a, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
