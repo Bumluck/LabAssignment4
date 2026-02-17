@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
 
     public void ProcessData()
     {
+        //Using the data from the characterData, set up the character
         health = characterData.health;
         charName = characterData.charName;
         level = characterData.level;

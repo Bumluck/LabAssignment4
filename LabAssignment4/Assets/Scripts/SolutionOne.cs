@@ -64,6 +64,7 @@ public class SolutionOne : MonoBehaviour
     public void DataCheck()
     //-------------------//
     {
+        //Check if the level and constitution of the character is valid
         if (level < 1 || level > 20)
         {
             level = 1;
@@ -80,6 +81,7 @@ public class SolutionOne : MonoBehaviour
     float ClassHP()
     //-----------//
     {
+        //Calculate the total HP the character gets from their class hit die.
         float classHP;
 
         for (int i = 0; i < classHitDie.Count - 1; i++)
@@ -107,6 +109,7 @@ public class SolutionOne : MonoBehaviour
     int ConHP()
     //-------//
     {
+        // Return an int that figures ou thow much HP you get from your constitution modifier
         int conHP;
         for (int i = 0; i < conMods.Count - 1; i++)
         {
@@ -124,6 +127,7 @@ public class SolutionOne : MonoBehaviour
     int RaceCheck()
     //-----------//
     {
+        //Check the character's race to see if they qualify for a race health bonus
         int raceHP;
         if (characterRace.Equals("Dwarf", System.StringComparison.OrdinalIgnoreCase))
         {
@@ -147,6 +151,7 @@ public class SolutionOne : MonoBehaviour
     int FeatCheck()
     //-----------//
     {
+        //Check and add HP if the character has certain feats that give them extra health
         int featHP = 0;
         if (hasStout)
         {

@@ -11,7 +11,6 @@ public class SolutionTwo : SolutionOne
     #region VARIABLES
 
     [Header("Solution Two Items")]
-    //Solution 2 items
     public bool instantiateCharacter;
     [SerializeField] GameObject charPrefab;
     Character spawnedCharacter;
@@ -42,10 +41,15 @@ public class SolutionTwo : SolutionOne
     public void InstantiateCharacter()
     //------------------------------//
     {
+        //Create a new characterData class with our input values and our calculated HP
         CharacterData characterData = new CharacterData(charHP, charName, level, charClass, characterRace);
+
+        //Instantiate a character, pass our CharacterData into the character, and tell the character to process that data
         spawnedCharacter = Instantiate(charPrefab).GetComponent<Character>();
         spawnedCharacter.characterData = characterData;
         spawnedCharacter.ProcessData();
+
+
         Debug.Log("Character has spawned and data should have been passed to them");
     }
 
